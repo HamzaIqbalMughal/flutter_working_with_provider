@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class StatefulWidgetScreen extends StatefulWidget {
@@ -9,6 +11,19 @@ class StatefulWidgetScreen extends StatefulWidget {
 
 class _StatefulWidgetScreenState extends State<StatefulWidgetScreen> {
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      count++;
+      print(count);
+      setState(() {
+
+      });
+    });
+  }
 
   int count = 0;
   @override
@@ -23,7 +38,7 @@ class _StatefulWidgetScreenState extends State<StatefulWidgetScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(DateTime.now().toString()),
+          Center(child: Text(DateTime.now().hour.toString() + ":"+DateTime.now().minute.toString()+":"+DateTime.now().second.toString(), style: TextStyle(fontSize: 50),)),
           Container(
             child: Center(
               child: Text(count.toString(), style: TextStyle(fontSize: 50),),
