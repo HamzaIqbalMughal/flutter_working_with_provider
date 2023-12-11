@@ -9,3 +9,18 @@
      // - Provider.of<CountProvider>(context, listen: false); // so setting the listen = false, will stop it to listen the changes
      // & now will only rebuild the Consumer widget with its provider e.g :- Consumer<CountProvider>(builder: (context, value, child){}
 
+=> Added ExampleOneScreen ExampleOneProvider.
+now we have to update the changeNotifierProvider() in build of main(),
+because now we don't have a single provider instead we have multiple providers in our app
+// just change the method , instead of changeNotifierProvider() use MultiProvider()
+
+-In ExampleOneScreen's build method, no need to create object of Provider like below:
+    //final provider = Provider.of<ExampleOneProvider>(context, listen: false);
+  because when we use Consumer Widget, we have to pass the builder like below:
+    // Consumer(
+         builder: (context, value, child){
+            // here we can do the same work of provider using value argument like below
+            value.setValue() , value.getValue, etc;
+            // so no need to initialize the provider like this: final provider = Provider.of<ExampleOneProvider>(context, listen: false);
+         }
+       )
