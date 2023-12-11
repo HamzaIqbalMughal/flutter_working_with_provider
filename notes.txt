@@ -1,2 +1,11 @@
 -Provider
 -Consumer Widget;  do magic instead of build the whole widget, only consumer widget will get build.
+
+-Example
+ final countProvider = Provider.of<CountProvider>(context, listen: false);
+     // where ever we create the object of Provider it starts listening to changes and build the whole widget in which it is created.
+     // like in the above case countProvider is initialized with Provider, now whenever any changes happens it will rebuild the Widget build()
+     // but we don't want to rebuild the whole widget, we only want to rebuild the widget where changes are actually happened,
+     // - Provider.of<CountProvider>(context, listen: false); // so setting the listen = false, will stop it to listen the changes
+     // & now will only rebuild the Consumer widget with its provider e.g :- Consumer<CountProvider>(builder: (context, value, child){}
+
