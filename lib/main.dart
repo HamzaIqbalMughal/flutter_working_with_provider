@@ -43,7 +43,6 @@ class MyApp extends StatelessWidget {
   // below is for the ExampleOne Screen
   @override
   Widget build(BuildContext context) {
-    // final themeChangerProvider = Provider.of<ThemeChangerProvider>(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CountProvider()),
@@ -51,18 +50,34 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_)=> FavouriteItemProvider()),
         ChangeNotifierProvider(create: (_)=> ThemeChangerProvider()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        // themeMode: ,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        // home: ExampleOneScreen(),
-        // home: FavouriteScreenWithoutProvider(),
-        // home: FavouriteScreen(),
-        home: DarkThemeScreen(),
-      ),
+      child: Builder(
+        builder: (BuildContext context){
+          final themeChangerProvider = Provider.of<ThemeChangerProvider>(context);
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            themeMode: themeChangerProvider.themeMode,
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+              brightness: Brightness.light,
+              iconTheme: IconThemeData(color: Colors.blue),
+            ),
+            darkTheme: ThemeData(
+              brightness: Brightness.dark,
+              primarySwatch: Colors.yellow,
+              iconTheme: IconThemeData(color: Colors.green),
+              appBarTheme: AppBarTheme(
+                color: Colors.green,
+              )
+            ),
+            // ------
+            // home: ExampleOneScreen(),
+            // home: FavouriteScreenWithoutProvider(),
+            // home: FavouriteScreen(),
+            home: DarkThemeScreen(),
+          );
+        },
+      )
     );
   }
 }

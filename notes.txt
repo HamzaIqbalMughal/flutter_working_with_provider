@@ -24,3 +24,7 @@ because now we don't have a single provider instead we have multiple providers i
             // so no need to initialize the provider like this: final provider = Provider.of<ExampleOneProvider>(context, listen: false);
          }
        )
+
+=> Changing the theme Using provider
+
+=>
