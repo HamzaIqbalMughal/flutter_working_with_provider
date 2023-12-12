@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_working_with_provider/provider/count_provider.dart';
 import 'package:flutter_working_with_provider/provider/example_one_provider.dart';
+import 'package:flutter_working_with_provider/provider/favourite_provider.dart';
 import 'package:flutter_working_with_provider/screen/count_example.dart';
 import 'package:flutter_working_with_provider/screen/example_one_screen.dart';
+import 'package:flutter_working_with_provider/screen/favourite/favorite_screen_without_provider.dart';
+import 'package:flutter_working_with_provider/screen/favourite/favourite_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'Statefull_widget_screen.dart';
@@ -42,6 +45,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => CountProvider()),
         ChangeNotifierProvider(create: (_)=> ExampleOneProvider()),
+        ChangeNotifierProvider(create: (_)=> FavouriteItemProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -49,7 +53,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ExampleOneScreen(),
+        // home: ExampleOneScreen(),
+        // home: FavouriteScreenWithoutProvider(),
+        home: FavouriteScreen(),
       ),
     );
   }
