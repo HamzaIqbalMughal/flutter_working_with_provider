@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_working_with_provider/provider/count_provider.dart';
 import 'package:flutter_working_with_provider/provider/example_one_provider.dart';
 import 'package:flutter_working_with_provider/provider/favourite_provider.dart';
+import 'package:flutter_working_with_provider/provider/theme_changer_provider.dart';
 import 'package:flutter_working_with_provider/screen/count_example.dart';
+import 'package:flutter_working_with_provider/screen/dark_theme_screen.dart';
 import 'package:flutter_working_with_provider/screen/example_one_screen.dart';
 import 'package:flutter_working_with_provider/screen/favourite/favorite_screen_without_provider.dart';
 import 'package:flutter_working_with_provider/screen/favourite/favourite_screen.dart';
@@ -41,21 +43,25 @@ class MyApp extends StatelessWidget {
   // below is for the ExampleOne Screen
   @override
   Widget build(BuildContext context) {
+    // final themeChangerProvider = Provider.of<ThemeChangerProvider>(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CountProvider()),
         ChangeNotifierProvider(create: (_)=> ExampleOneProvider()),
         ChangeNotifierProvider(create: (_)=> FavouriteItemProvider()),
+        ChangeNotifierProvider(create: (_)=> ThemeChangerProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
+        // themeMode: ,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         // home: ExampleOneScreen(),
         // home: FavouriteScreenWithoutProvider(),
-        home: FavouriteScreen(),
+        // home: FavouriteScreen(),
+        home: DarkThemeScreen(),
       ),
     );
   }
