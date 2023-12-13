@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_working_with_provider/provider/auth_provider.dart';
 import 'package:flutter_working_with_provider/provider/count_provider.dart';
 import 'package:flutter_working_with_provider/provider/example_one_provider.dart';
 import 'package:flutter_working_with_provider/provider/favourite_provider.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_working_with_provider/screen/dark_theme_screen.dart';
 import 'package:flutter_working_with_provider/screen/example_one_screen.dart';
 import 'package:flutter_working_with_provider/screen/favourite/favorite_screen_without_provider.dart';
 import 'package:flutter_working_with_provider/screen/favourite/favourite_screen.dart';
+import 'package:flutter_working_with_provider/screen/login_screen.dart';
 import 'package:flutter_working_with_provider/screen/value_notify_listner.dart';
 import 'package:provider/provider.dart';
 
@@ -46,10 +48,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => CountProvider()),
+        ChangeNotifierProvider(create: (_)=> CountProvider()),
         ChangeNotifierProvider(create: (_)=> ExampleOneProvider()),
         ChangeNotifierProvider(create: (_)=> FavouriteItemProvider()),
         ChangeNotifierProvider(create: (_)=> ThemeChangerProvider()),
+        ChangeNotifierProvider(create: (_)=> AuthProvider()),
       ],
       child: Builder(
         builder: (BuildContext context){
@@ -76,7 +79,8 @@ class MyApp extends StatelessWidget {
             // home: FavouriteScreenWithoutProvider(),
             // home: FavouriteScreen(),
             // home: DarkThemeScreen(),
-            home: NotifyListenerScreen(),
+            // home: NotifyListenerScreen(),
+            home: LogInScreen(),
           );
         },
       )
