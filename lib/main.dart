@@ -8,6 +8,7 @@ import 'package:flutter_working_with_provider/screen/dark_theme_screen.dart';
 import 'package:flutter_working_with_provider/screen/example_one_screen.dart';
 import 'package:flutter_working_with_provider/screen/favourite/favorite_screen_without_provider.dart';
 import 'package:flutter_working_with_provider/screen/favourite/favourite_screen.dart';
+import 'package:flutter_working_with_provider/screen/value_notify_listner.dart';
 import 'package:provider/provider.dart';
 
 import 'Statefull_widget_screen.dart';
@@ -74,7 +75,8 @@ class MyApp extends StatelessWidget {
             // home: ExampleOneScreen(),
             // home: FavouriteScreenWithoutProvider(),
             // home: FavouriteScreen(),
-            home: DarkThemeScreen(),
+            // home: DarkThemeScreen(),
+            home: NotifyListenerScreen(),
           );
         },
       )

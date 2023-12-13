@@ -27,4 +27,21 @@ because now we don't have a single provider instead we have multiple providers i
 
 => Changing the theme Using provider
 
-=>
+=> How to use Stateless Widget as Stateful Widget. (value_notify_listener.dart)
+ 1. In provider we have a ValueNotifier, which requires a datatype and for initializing it we have to assign initial value:
+  e.g code : ValueNotifier<int> _counter = ValueNotifier<int>(0);
+    ValueNotifier is a kind of declaring a variable.
+ 2. We also a Widget named: ValueListenableBuilder() , which accepts two things builder: and valuelistenable
+  e.g code :
+    ValueListenableBuilder(
+              valueListenable: _counter,
+              builder: (context, value, index){
+                return Text(_counter.value.toString(), style: TextStyle(fontSize: 50),);
+              },
+            )
+    - only the ValueListenableBuilder is rebuilding instead of building the whole build method of Scaffold,
+      also now we have used Stateless Widget as Stateful Widget
+ 3. Performed Function of TextFormField's obscureText.
+
+ * The Cons of using Stateless widget as stateful that, now we don't have dispose() and init() methods,
+
